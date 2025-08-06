@@ -11,7 +11,7 @@ Human::Human(std::string n){
 
 Move* Human::makeMove(){
     std::string m;
-    std::cout << "Enter Move: ";
+    //std::cout << "Enter Move: ";
     std::cin >> m;
     TheMover mover;
     move = mover.theMove(m);
