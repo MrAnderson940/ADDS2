@@ -2,7 +2,7 @@
 #include "TheMover.h"
 
 Human::Human(){
-    name = "Player";
+    name = "Human";
 }
 
 Human::Human(std::string n){
