@@ -12,5 +12,9 @@
 #include "TheMover.h"
 
 int main(){
+    Computer c1;
+    Human p1("Owen");
+    Referee r1;
+    r1.refGame(&p1,&c1);
     return 0;
 }

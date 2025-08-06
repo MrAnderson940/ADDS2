@@ -1,5 +1,9 @@
 #include "Player.h"
 
+Player::Player(){
+    
+}
+
 std::string Player::getMove(){
     return move->getName();
 }
