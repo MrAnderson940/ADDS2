@@ -12,9 +12,33 @@
 #include "TheMover.h"
 
 int main(){
-    Computer c1;
-    Human p1("Owen");
+    Computer c1, c2, c3, c4;
+    Human p1, p2, p3, p4;
+    Player* win;
     Referee r1;
-    r1.refGame(&p1,&c1);
+    win = r1.refGame(&c2,&c1);
+    if (win == nullptr){
+        std::cout << "Tie\n";
+    } else{
+        std::cout << win->getName() << std::endl;
+    }
+    win = r1.refGame(&p1,&p2);
+    if (win == nullptr){
+        std::cout << "Tie\n";
+    } else{
+        std::cout << win->getName() << std::endl;
+    }
+    win = r1.refGame(&p3,&c3);
+    if (win == nullptr){
+        std::cout << "Tie\n";
+    } else{
+        std::cout << win->getName() << std::endl;
+    }
+    win = r1.refGame(&p4,&c4);
+    if (win == nullptr){
+        std::cout << "Tie\n";
+    } else{
+        std::cout << win->getName() << std::endl;
+    }
     return 0;
 }

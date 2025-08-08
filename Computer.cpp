@@ -14,5 +14,5 @@ Move* Computer::makeMove(){
 }
 
 Computer::~Computer(){
-    delete[] move;
+    
 }

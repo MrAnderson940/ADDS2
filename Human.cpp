@@ -19,5 +19,5 @@ Move* Human::makeMove(){
 }
 
 Human::~Human(){
-    delete[] move;
+
 }
