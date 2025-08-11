@@ -8,6 +8,10 @@ int Reverser::reverseDigit(int value){
     //std::cout << value << std::endl;
     return reverseDigit(value/10, value %10);
 }
+int Reverser::reverseDigit(){
+    return -1;
+}
+
 
 int Reverser::reverseDigit(int value, int reverced){
     if (value == 0){
