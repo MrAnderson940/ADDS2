@@ -13,7 +13,8 @@ int Reverser::reverseDigit(int value, int reverced){
         return reverced;
     }
     if (reverced == 0){
-        return reverseDigit(value/10, value %10);
+        reverced = reverseDigit(value/10, value %10);
+        return reverced*10;
     }
     return reverseDigit(value/10,((reverced*10)+(value%10)));
 }
