@@ -1,8 +1,6 @@
 #include "Truckloads.h"
-#include <iostream>
 
 int Truckloads::numTrucks(int numCrates, int loadSize){
-    //std::cout << "pos1 " << numCrates << std::endl;
     if (numCrates <= loadSize){
         return 1;
     }
