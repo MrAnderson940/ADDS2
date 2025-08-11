@@ -2,6 +2,9 @@
 
 
 int Reverser::reverseDigit(int value){
+    if (value >= 1000000000){ 
+        return -1;
+    }
     return reverseDigit(value/10, value %10);
 }
 
