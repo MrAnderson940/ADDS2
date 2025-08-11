@@ -19,6 +19,9 @@ int Reverser::reverseDigit(int value, int reverced){
 }
 
 std::string Reverser::reverseString(std::string characters){
+    if (characters == ""){
+        return "ERROR";
+    }
     int n = characters.length();
     std::string s;
     s = s + characters[n];
