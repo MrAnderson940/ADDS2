@@ -2,11 +2,11 @@
 #include <iostream>
 
 int Reverser::reverseDigit(int value){
-    if (value >= 1000000000){ 
+    //if (value >= 1000000000){ 
         return -1;
-    }
-    //std::cout << value << std::endl;
-    return reverseDigit(value/10, value %10);
+    //}
+    ////std::cout << value << std::endl;
+    //return reverseDigit(value/10, value %10);
 }
 int Reverser::reverseDigit(){
     return -1;
