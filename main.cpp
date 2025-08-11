@@ -7,7 +7,7 @@ int main(){
     //std::cout << r1.reverseString("dsadgfa") << std::endl;
     
     //std::cout << r1.reverseDigit(214512) << std::endl;
-    std::cout << r1.reverseDigit() << std::endl;
+    std::cout << r1.reverseDigit(0) << std::endl;
     //std::cout << r1.reverseDigit(147483647) << std::endl;
     
     //std::cout << r1.reverseDigit(0) << std::endl;
