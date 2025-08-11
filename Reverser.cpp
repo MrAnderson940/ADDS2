@@ -1,10 +1,11 @@
 #include "Reverser.h"
-
+#include <iostream>
 
 int Reverser::reverseDigit(int value){
     if (value >= 1000000000){ 
         return -1;
     }
+    //std::cout << value << std::endl;
     return reverseDigit(value/10, value %10);
 }
 
@@ -13,9 +14,9 @@ int Reverser::reverseDigit(int value, int reverced){
         return reverced;
     }
     if (reverced == 0){
-        reverced = reverseDigit(value/10, value %10);
-        return reverced*10;
+        return reverseDigit(value/10, value %10);
     }
+    //std::cout << value << " " << reverced << std::endl;
     return reverseDigit(value/10,((reverced*10)+(value%10)));
 }
 
