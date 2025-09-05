@@ -2,6 +2,7 @@
 #include "QuickSort.h"
 #include "RecursiveBinarySearch.h"
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -11,13 +12,24 @@ int main(){
     BubbleSort sorterB;
     QuickSort sorterQ;
     RecursiveBinarySearch r;
-    for (int i = 0; i < 8; i++){
-        int c;
-        cin >> c;
-        list1.push_back(c);
+
+    std::string line;
+    int number;
+    std::vector<int> numbers;
+
+    std::getline(std::cin, line);
+    std::istringstream stream(line);
+    while (stream >> number){
+        numbers.push_back(number);
     }
-    listout1 = sorterQ.sort(list1);
-    cout << r.search(listout1,1) << " ";
+
+
+    listout1 = sorterQ.sort(numbers);
+    if (r.search(listout1,1) == 0){
+        cout << "false ";
+    } else {
+        cout << "true ";
+    }
     for (int i=0; i<listout1.size();i++){
         cout << listout1[i] << " ";
     }
