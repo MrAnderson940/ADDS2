@@ -7,7 +7,7 @@ bool RecursiveBinarySearch::search(std::vector<int> list, int n){
 }
 bool RecursiveBinarySearch::search(std::vector<int> list, int n,int hi, int low){
     //std::cout << hi << " " << low << " t1\n";
-    if (hi==low){
+    if (hi<=low){
         if (list[hi] == n){
             return true;
         } else {
@@ -23,7 +23,7 @@ bool RecursiveBinarySearch::search(std::vector<int> list, int n,int hi, int low)
         //std::cout << "t4\n";
         return search(list,n,check-1,low);
     } else {
-       // std::cout << "t5\n";
+        //std::cout << "t5\n";
         return search(list,n,hi,check+1);
     }
 }

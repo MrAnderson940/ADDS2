@@ -7,7 +7,7 @@
 using namespace std;
 
 int main(){
-    vector<int> list1;
+    vector<int> list1 = {1,3,5,4,-5,100,7777,2014,0};
     vector<int> listout1,listout2;
     BubbleSort sorterB;
     QuickSort sorterQ;
@@ -25,6 +25,7 @@ int main(){
 
 
     listout1 = sorterQ.sort(numbers);
+   // cout << "t1\n" << r.search(listout1,1) << endl;
     if (r.search(listout1,1) == 0){
         cout << "false ";
     } else {
