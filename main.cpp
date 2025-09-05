@@ -13,7 +13,6 @@ int main(){
     RecursiveBinarySearch r;
     for (int i = 0; i < 8; i++){
         int c;
-        cout << "plase input number: ";
         cin >> c;
         list1.push_back(c);
     }
