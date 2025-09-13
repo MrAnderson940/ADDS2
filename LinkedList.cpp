@@ -128,13 +128,14 @@ int LinkedList::search(int target){
 
 void LinkedList::printList(){
     if (head->getLink()==nullptr){
+        std::cout << "[]\n";
         return;
     }
     std::cout << "[";
-        Node* hold = head;
-    for (int i = 0;(hold==nullptr);i++){
-        std::cout << hold->getData() << "] ";
+    Node* hold = head;
+    for (int i = 0;(hold!=nullptr);i++){
+        std::cout << hold->getData() << " ";
         hold = hold->getLink();
     }
-    std::cout << std::endl;
+    std::cout << "]" << std::endl;
 }
