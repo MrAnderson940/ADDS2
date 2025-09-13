@@ -6,6 +6,7 @@ class Node{
     int data;
     Node* link;
     public:
+    Node();
     Node(int d, Node* l);
     int getData();
     Node* getLink();

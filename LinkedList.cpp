@@ -7,13 +7,13 @@ LinkedList::LinkedList(){
 }
 
 LinkedList::LinkedList(int* array, int len){
-    head = nullptr;
-    for (int i = 0; i <= len; i++){
-        if (sizeof(array) <= i){
-            head = new Node(array[i],head);
-        } else {
-            head = new Node(0,head);
-        }
+    head = new Node(array[0], nullptr);
+    Node* hold = head;
+
+    for (int i = 1; i < len; i++){
+        Node* nNode = new Node(array[i],nullptr);
+        hold->setLink(nNode);
+        hold = nNode;
     }
 }
 
@@ -28,61 +28,96 @@ LinkedList::~LinkedList(){
 
 void LinkedList::insertPosition(int pos, int newNum){
     
-    if (pos <= 1){
+    if (pos < 1){
         head = new Node(newNum,head);
         return;
     }
-    Node* hold = head;
-    for (int i = 0; (i<pos)||(hold==nullptr);i++){
-        hold = hold->getLink();
-    }
-    if (hold == nullptr){
-        hold = head;
-        for (int i = 0; ; i++){
-            if(hold->getLink() == nullptr){
-                Node* temp = new Node(newNum,nullptr);
-                hold->setLink(temp);
-                return;
-            } else{
-                hold = hold->getLink();
-            }
-        }
-    } else {
-        hold->setData(newNum);
+    Node* hold1 = head;
+    Node* hold2 = head;
+    hold1 = hold1->getLink();
+    int count = 2;
+
+    while ((count < pos) && (hold1->getLink() != nullptr)){
+        hold2 = hold1;
+        hold1 = hold1->getLink();
+        count++;
     }
 
+    if ((hold1->getLink() == nullptr) && (count == pos-1)){
+        Node* nNode = new Node(newNum,nullptr);
+        hold2->setLink(nNode);
+    } else if(pos > count){
+        Node* nNode = new Node(newNum,nullptr);
+        hold2->setLink(nNode);
+    } else {
+        Node* nNode = new Node(newNum, hold1);
+        hold2->setLink(nNode);
+    }
 }
 
 bool LinkedList::deletePosition(int pos){
-    Node* hold1 = head;
-    Node* hold2 = head->getLink();
-    for (int i = 0; (i<pos)||(hold2==nullptr); i++){
-        hold1 = hold2;
-        hold2 = hold2->getLink();
-    } 
-    if (hold2 == nullptr){
-        return false;
-    } else{
-        hold1->setLink(hold2->getLink());
+    int n = 1;
+    if (n == pos){
+        Node* hold = head;
+        head = head->getLink();
+        delete hold;
         return true;
     }
+
+    Node* hold1 = head;
+    Node* hold2 = head;
+    hold1 = hold1->getLink();
+    n++;
+
+    while ((n != pos) && (hold1->getLink() != nullptr)){
+        hold2 = hold1;
+        hold1 = hold1->getLink();
+        n++;
+    }
+
+    if ((hold1->getLink() == nullptr) && (n == pos-1)){
+        hold2->setLink(nullptr);
+        delete hold1;
+        return true;
+    } else if (n == pos){
+        hold2->setLink(hold1->getLink());
+        delete hold1;
+        return true;
+    }
+
+    return false;
 }
 
 int LinkedList::get(int pos){
-    Node* hold = head;
-    for (int i = 0; (i<pos)||(hold==nullptr);i++){
-        hold = hold->getLink();
-    }
-    if (hold == nullptr){
+    if (pos < 1){
         return std::numeric_limits<int>::max();
-    } else{
+    }
+    int n = 1;
+
+    if (n == pos){
+        return head->getData();
+    }
+
+    Node* hold = head->getLink();
+    n++;
+
+    while ((n != pos) && (hold->getLink() != nullptr)){
+        hold = hold->getLink();
+        n++;
+    }
+
+    if ((hold->getLink() == nullptr) && (n == pos-1)){
+        return std::numeric_limits<int>::max();
+    } else if (n == pos){
         return hold->getData();
     }
+
+    return std::numeric_limits<int>::max();
 }
 
 int LinkedList::search(int target){
     Node* hold = head;
-    for (int i = 0;(hold==nullptr);i++){
+    for (int i = 1;(hold==nullptr);i++){
         if (hold->getData() == target){
             return i;
         }
