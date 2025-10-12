@@ -12,7 +12,7 @@ int PrefixMatcher::selectRouter(std::string networkAddress){
     for (int i = 0; i < networkAddress.length(); i++){
         int check = networkAddress[i] - '0';
         if (hold->getIP()[check] == nullptr){
-            return hold->getRoutorNum();
+            return hold->getRouterNum();
         }
         hold = hold->getIP()[check];
     }
@@ -23,8 +23,8 @@ int PrefixMatcher::selectRouter(std::string networkAddress){
     while (!next.empty()){
         TriePF* hold2 = next.front();
         next.pop();
-        if(hold2->getRoutorNum() != -1){
-            routor = hold2->getRoutorNum();
+        if(hold2->getRouterNum() != -1){
+            routor = hold2->getRouterNum();
         }
         if(hold2->getIP()[0] != nullptr){
             next.push(hold2->getIP()[0]);
@@ -49,5 +49,5 @@ void PrefixMatcher::insert(std::string address, int routorNum){
         hold = hold->getIP()[check];
     }
 
-    hold->setRoutorNum(routorNum);
+    hold->setRouterNum(routorNum);
 }
