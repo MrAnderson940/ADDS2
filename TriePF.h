@@ -4,12 +4,12 @@
 
 class TriePF{
     private:
-    int routorNum;
+    int routerNum;
     std::vector<TriePF*> IP;
     public:
     TriePF();
-    void setRoutorNum(int num);
-    int getRoutorNum();
+    void setRouterNum(int num);
+    int getRouterNum();
     std::vector<TriePF*>& getIP();
 };
 

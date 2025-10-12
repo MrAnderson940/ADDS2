@@ -5,7 +5,7 @@ PrefixMatcher::PrefixMatcher(){
     root = new TriePF();
 }
 
-int PrefixMatcher::selectRoutor(std::string networkAddress){
+int PrefixMatcher::selectRouter(std::string networkAddress){
     TriePF* hold = root;
     int routor = -1;
 

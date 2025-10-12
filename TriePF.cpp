@@ -1,16 +1,16 @@
 #include "TriePF.h"
 
 TriePF::TriePF(){
-    routorNum = -1;
+    routerNum = -1;
     IP.resize(2, nullptr);
 }
 
-void TriePF::setRoutorNum(int num){
-    routorNum = num;
+void TriePF::setRouterNum(int num){
+    routerNum = num;
 }
 
-int TriePF::getRoutorNum(){
-    return routorNum;
+int TriePF::getRouterNum(){
+    return routerNum;
 }
 
 std::vector<TriePF*>& TriePF::getIP(){

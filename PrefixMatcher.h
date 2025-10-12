@@ -8,7 +8,7 @@ class PrefixMatcher{
     TriePF* root;
     public:
     PrefixMatcher();
-    int selectRoutor(std::string networkAddress);
+    int selectRouter(std::string networkAddress);
     void insert(std::string address, int routorNum);
 };
 
